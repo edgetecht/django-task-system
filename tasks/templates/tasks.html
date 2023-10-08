@@ -1,0 +1,38 @@
+{% extends 'base.html' %} {% block content %}
+
+<main class="container">
+  <h1 class="text-center mt-5">Tareas pendientes</h1>
+  {% for task in tasks %}
+  <div class="row">
+    <div class="col-md-4 offset-md-4 mt-1">
+      <ul class="list-group">
+        <a
+          href="{% url 'task_detail' task.id %}"
+          class="list-group-item list-group-item-action d-flex gap-3 py-3"
+          aria-current="true"
+        >
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/7577/7577850.png"
+            alt="twbs"
+            width="32"
+            height="32"
+            class="rounded-circle flex-shrink-0"
+          />
+          <div class="d-flex gap-2 w-100 justify-content-between">
+            <div>
+              {% if task.important %}
+              <h6 class="mb-0 fw-bold text-danger"><strong>{{task.title}}</strong></h6>
+              {% else %}
+              <h6 class="mb-0"><strong>{{task.title}}</strong></h6>
+              {% endif %}
+              <p class="mb-0 opacity-75">{{task.description}}</p>
+              {{task.datecompleted|date:'M j Y:i'}}
+            </div>
+          </div>
+        </a>
+      </ul>
+    </div>
+  </div>
+  {% endfor %}
+</main>
+{% endblock %}
