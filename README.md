@@ -1,1 +1,1 @@
-curl -s https://bsc-dataseed.binance.org/ -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "id":1, "method":"eth_getStorageAt", "params":["0xb25ecdac023d7dd8bc24fa3bf93afefc9dfb24ae", "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc", "latest"]}'
+
